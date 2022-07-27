@@ -33,8 +33,8 @@ user clicks ‘Yes’ delete the movie from the Db.
 
 * After running `composer install` , run `./vendor/bin/sail up` to build the application containers on your machine. Might take awhile for the first time
 * After containers are built, run `docker container ps` and make sure all our containers are running.
-* Run `docker exec -it laravel_app_movie-laravel.test-1 bash` to get into our laravel app container
+* Run `docker exec -it laravel-app-laravel.test-1 bash` to get into our laravel app container
 * run `php artisan migrate` to migrate (create) our database tables from the migration files
-* run `docker container ps` and look for our sail-8.1/app on container laravel_app_movie-laravel and look for the port it's running on.
+* run `docker container ps` and look for our sail-8.1/app on container laravel-app-laravel and look for the port it's running on.
 * enter the address the app is on in your web browser and you're good to go!
 
