@@ -27,7 +27,6 @@ Route::get('/home', function () {
 Route::get('/movies/index', [MovieController::class, 'index']);
 Route::post('movies', [MovieController::class, 'store']);
 Route::get('/movies/create', [MovieController::class, 'create']);
-Route::put('movies/{id}', [MovieController::class]);
 Route::get('/movies/actors/{id}', [MovieController::class, 'getMovieActors']);
 Route::resource('movies', MovieController::class);
 
