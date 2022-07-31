@@ -49,9 +49,9 @@
         </div>
 
         <div class="form-group" id="producer_list_wrapper">
-            <label for="departmentsDropdown"><b>Producers</b></label>
+            <label for="producersDropdown"><b>Producers</b></label>
             <div class="form-group" id="producer_list_wrapper">
-                <select class="form-control" id="producer_list" name="producer_list">
+                <select class="form-control" id="producer_list" name="producer_list" required>
                     <div class="form-group" id="options-list">
                     </div>
                 </select>
@@ -61,9 +61,9 @@
         <div class="form-group" id="actor_list_wrapper">
             <table class="table table-bordered" id="dynamic_field">
                 <tr>
-                    <label for="departmentsDropdown"><b>Actors</b></label>
+                    <label for="actorsDropdown"><b>Actors</b></label>
                     <div class="form-group" id="actor_list_wrapper">
-                        <td><select class="form-control actor_list" id="actor_list" name="actor_list[]">
+                        <td><select class="form-control actor_list" id="actor_list" name="actor_list[]" required>
                                 <div class="form-group" id="options-list">
                                 </div>
                             </select>
@@ -233,7 +233,7 @@
                 data: "{}",
                 success: function(data) {
                     var data = data.actors;
-                    var s = '<option value="-1">Please Select an Actor</option>';
+                    var s = '<option value="">Please Select an Actor</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }
@@ -248,7 +248,7 @@
                 data: "{}",
                 success: function(data) {
                     var data = data.producers;
-                    var s = '<option value="-1">Please Select a Producer</option>';
+                    var s = '<option value="">Please Select a Producer</option>';
                     for (var i = 0; i < data.length; i++) {
                         s += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
                     }

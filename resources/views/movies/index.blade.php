@@ -32,7 +32,7 @@
             </thead>
             @foreach ($movies as $key => $value)
                 <tr>
-                    <td>{{ $key }}</td>
+                    <td>{{ $value->id }}</td>
                     <td><img src="{{ asset('images/' . $value->image) }}" alt="" height=100 width=100 /></td>
                     <td>{{ $value->name }}</td>
                     <td>{{ $value->year_of_release }}</td>
@@ -40,7 +40,8 @@
                     <form method="post" id="form-del" action="{{ route('movies.destroy', $value->id) }}">
                         @csrf
                         @method('DELETE')
-                        <td><input type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" value="delete">
+                        <td>
+                            <button class="btn btn-xs btn-danger btn-flat show_confirm" onclick="return confirm('Are you sure?')" type="submit" data_id={{ $value->id }} id="del-id">delete</button>
                             <button type="button" class="btn btn-xs btn-info info-modal" data-id={{ $value->id }}
                                 data-toggle="modal" data-target="#infoModal">
                                 more info
@@ -75,27 +76,8 @@
             $(document).on('click', '.info-modal', function() {
                 let id = $(this).data('id');
                 $.get('/movies/' + id, function(data) {
-                    console.log(data);
                     $('#infoModal .modal-body').html(data);
                 });
-            });
-
-            $('.show_confirm').click(function(event) {
-                var form = $(this).closest("form");
-                var name = $(this).data("name");
-                event.preventDefault();
-                swal({
-                    title: `Are you sure you want to delete this record?`,
-                    text: "If you delete this, it will be gone forever.",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                }).then((result) => {
-                    if (result === true) {
-                        $('#form-del').submit();
-                    }
-                });
-                return false;
             });
         </script>
     @endsection

@@ -53,7 +53,7 @@
         </div>
 
         <div class="form-group" id="producer_list_wrapper">
-            <label for="departmentsDropdown"><b>Producers</b></label>
+            <label for="producersDropdown"><b>Producers</b></label>
             <div class="form-group" id="producer_list_wrapper">
                 <select class="form-control" id="producer_list" name="producer_list">
                     <div class="form-group" id="options-list">
@@ -65,14 +65,11 @@
 
         <div class="form-group" id="actor_list_wrapper">
             <table class="table table-bordered" id="dynamic_field">
-                <label for="departmentsDropdown"><b>Actors</b></label>
+                <label for="actorsDropdown"><b>Actors</b></label>
                 <tr>
                     <div class="form-group" id="actor_list_wrapper">
                         <td>
-                            <select class="form-control actor_list" id="actor_list" name="actor_list[]">
-                                <div class="form-group" id="options-list">
-                                </div>
-                            </select>
+                            Current Actor List:
                         </td>
                         <td>
                             <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
@@ -295,7 +292,7 @@
                 i++;
                 $('#dynamic_field').append('<tr id="row' + i +
                     '" class="dynamic-added"><td><select name="actor_list[]" class="form-control name_list" required id="name-two">' +
-                    actorList + '</select></td><td><button type="button" name="remove" id="' + i +
+                    '<option value="">Select an actor</option>' + actorList + '</select></td><td><button type="button" name="remove" id="' + i +
                     '" class="btn btn-danger btn_remove">X</button></td></tr>');
             });
 
