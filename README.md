@@ -31,7 +31,7 @@ user clicks ‘Yes’ delete the movie from the Db.
 
 ### Executing program
 
-* After running `composer install` , run `./vendor/bin/sail up` to build the application containers on your machine. Might take awhile for the first time
+* After running `composer install` , run `./vendor/bin/sail up -d` to build the application containers on your machine. Might take awhile for the first time
 * After containers are built, run `docker container ps` and make sure all our containers are running.
 * Run `docker exec -it laravel-app-laravel.test-1 bash` to get into our laravel app container
 * run `php artisan migrate` to migrate (create) our database tables from the migration files
